@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<h2>Meus Projetos</h2>
+<p>{{ projetos|length }} projetos cadastrados</p>
+<input type="text" id="busca" placeholder="Buscar projeto..." style="margin: 20px 0; padding: 8px; width: 100%;">
+
+{% if projetos %}
+  <div class="cards">
+    {% for projeto in projetos %}
+      <div class="card">
+        <h3>{{ projeto[1] }}</h3>
+        <p>{{ projeto[2] }}</p>
+        <small>Tecnologias: {{ projeto[3] }}</small><br><br>
+
+        <span class="status {{ projeto[6] | lower | replace(' ', '-') }}">
+  {{ projeto[6] }}
+</span>
+
+        <div class="acoes">
+          <a href="{{ projeto[4] }}" target="_blank">GitHub</a>
+          {% if projeto[5] %}
+            <a href="{{ projeto[5] }}" target="_blank">Site</a>
+          {% endif %}
+          <a href="{{ url_for('editar', id=projeto[0]) }}">✏️ Editar</a>
+          <a href="{{ url_for('excluir', id=projeto[0]) }}" onclick="return confirm('Tem certeza que deseja excluir?')">🗑️ Excluir</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>Nenhum projeto cadastrado ainda.</p>
+{% endif %}
+<script>
+  const busca = document.getElementById("busca");
+  busca.addEventListener("keyup", () => {
+    const termo = busca.value.toLowerCase();
+    document.querySelectorAll(".card").forEach(card => {
+      card.style.display = card.innerText.toLowerCase().includes(termo) ? "block" : "none";
+    });
+  });
+</script>
+{% endblock %}

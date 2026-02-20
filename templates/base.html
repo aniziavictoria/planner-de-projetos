@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Planner de Projetos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Meu Planner de Projetos</h1>
+    <p style="color:#475569; margin-top:6px;">
+  Organizando meus projetos enquanto evoluo como dev.
+</p>
+    <nav>
+      <a href="{{ url_for('index') }}">Projetos</a>
+      <a href="{{ url_for('novo') }}">Novo Projeto</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block conteudo %}{% endblock %}
+  </main>
+
+  <footer>
+    © 2026 – Projeto desenvolvido por Anízia Victória
+  </footer>
+</body>
+</html>

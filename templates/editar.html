@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<h2>Editar Projeto</h2>
+<div class="form-container">
+<form method="POST">
+    <input type="text" name="nome" value="{{ projeto[1] }}" required><br>
+    <textarea name="descricao">{{ projeto[2] }}</textarea><br>
+    <input type="text" name="tecnologias" value="{{ projeto[3] }}"><br>
+    <input type="text" name="link_github" value="{{ projeto[4] }}"><br>
+    <input type="text" name="link_site" value="{{ projeto[5] }}"><br>
+    <input type="text" name="status" value="{{ projeto[6] }}"><br>
+    <button type="submit">Salvar Alterações</button>
+</div>
+</form>
+{% endblock %}

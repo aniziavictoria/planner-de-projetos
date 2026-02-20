@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="novo-projeto-container">
+<h2>Novo Projeto</h2>
+
+<form method="POST">
+    <input type="text" name="nome" placeholder="Nome do projeto" required><br>
+    <textarea name="descricao" placeholder="Descrição"></textarea><br>
+    <input type="text" name="tecnologias" placeholder="Tecnologias (ex: HTML, CSS, JS)"><br>
+    <input type="text" name="link_github" placeholder="Link do GitHub"><br>
+    <input type="text" name="link_site" placeholder="Link do site"><br>
+    <input type="text" name="status" placeholder="Status (em andamento / finalizado)"><br>
+    <button type="submit">Salvar</button>
+</form>
+</div>
+{% endblock %}
